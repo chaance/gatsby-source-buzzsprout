@@ -6,6 +6,7 @@
   "scripts": {
     "build": "babel src --out-dir . --ignore **/__tests__",
     "watch": "babel -w src --out-dir . --ignore **/__tests__",
+    "dev": "cross-env NODE_ENV=development npm run watch",
     "prepare": "cross-env NODE_ENV=production npm run build",
     "test": "echo \"Error: no test specified\""
   },
@@ -26,8 +27,15 @@
   "devDependencies": {
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5",
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.4.4",
+    "babel-eslint": "^10.0.1",
     "babel-preset-gatsby-package": "^0.1.4",
     "cross-env": "^5.2.0",
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^4.3.0",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-prettier": "^3.1.0",
     "prettier": "^1.17.1"
   },
   "peerDependencies": {
@@ -40,10 +48,5 @@
   "bugs": {
     "url": "https://github.com/chancestrickland/gatsby-source-buzzsprout/issues"
   },
-  "private": false,
-  "prettier": {
-    "semi": true,
-    "singleQuote": true,
-    "trailingComma": "es5"
-  }
+  "private": false
 }

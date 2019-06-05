@@ -13,5 +13,10 @@ jspm_packages
 .DS_Store
 .yarn-integrity
 yarn.lock
-/*.js
+/**/*.js
+!/src/**/*.js
 !index.js
+
+# dev config files
+!.eslintrc.js
+!babel.config.js
