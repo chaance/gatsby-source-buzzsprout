@@ -1,5 +1,5 @@
 const createNodeHelpers = require('gatsby-node-helpers').default;
-const Buzzsprout = require('./lib/Buzzsprout');
+const Buzzsprout = require('./Buzzsprout');
 const { createNodeFactory } = createNodeHelpers({ typePrefix: `Buzzsprout` });
 const PodcastEpisodeNode = createNodeFactory('PodcastEpisode', node => {
   return node;

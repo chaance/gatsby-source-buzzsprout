@@ -56,7 +56,6 @@ const PodcastPage = ({
     allBuzzsproutPodcastEpisode: { edges: episodes },
   },
 }) => {
-  console.log(episodes.map(({ node }) => node.title));
   return (
     <Layout>
       <h1>My Podcast Episodes</h1>
@@ -70,7 +69,6 @@ const PodcastPage = ({
           />
         ))}
       </ul>
-      <Link to="/page-2/">Go to page 2</Link>
     </Layout>
   );
 };
