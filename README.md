@@ -2,21 +2,27 @@
 
 A Gatsby plugin to load podcast episodes from the [Buzzsprout API](https://github.com/Buzzsprout/buzzsprout-api). Basic functionality should work, but this is very much a work-in-process. Be prepared for things to break.
 
+Please note that the Buzzsprout API itself is still somewhat fresh and is likely to evolve over time.
+
 ## Installation
+
 ```bash
 $ npm i gatsby-source-buzzsprout
 ```
+
 OR
+
 ```bash
 $ yarn add gatsby-source-buzzsprout
 ```
 
 ### Webhooks
+
 TODO
 
 ## Usage
 
-In your `gatsby-config.js` file, load in the plugin along with the parameters of which events to load:
+In your `gatsby-config.js` file, load in the plugin along with the parameters of which podcast episodes to load:
 
 ```javascript
 module.exports = {
@@ -35,4 +41,54 @@ module.exports = {
     },
   ],
 };
+```
+
+In your page, construct a query to get the data you need from the API.
+
+```js
+import React from 'react';
+import { graphql } from 'gatsby';
+import Layout from 'components/Layout';
+import Episode from 'components/Episode';
+
+const PodcastPage = ({
+  data: {
+    allBuzzsproutPodcastEpisode: { edges: episodes },
+  },
+}) => {
+  console.log(episodes.map(({ node }) => node.title));
+  return (
+    <Layout>
+      <h1>My Podcast Episodes</h1>
+      <ul>
+        {episodes.map(({ node }) => (
+          <Episode
+            key={node.id}
+            episode={node.episode_number}
+            title={node.title}
+            url={node.audio_url}
+          />
+        ))}
+      </ul>
+      <Link to="/page-2/">Go to page 2</Link>
+    </Layout>
+  );
+};
+
+export const query = graphql`
+  query HomePageQuery {
+    allBuzzsproutPodcastEpisode {
+      edges {
+        node {
+          id
+          title
+          audio_url
+          episode_number
+        }
+      }
+    }
+  }
+`;
+
+export default IndexPage;
 ```
