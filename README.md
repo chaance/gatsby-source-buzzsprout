@@ -25,7 +25,7 @@ module.exports = {
       resolve: 'gatsby-source-buzzsprout',
       options: {
         // You will need to generate an access token and get the podcast ID from your account
-        // https://www.buzzsprout.com/admin/users/103398/api
+        // https://github.com/Buzzsprout/buzzsprout-api#authentication
         token: '1234567890',
         podcastId: '123456',
         // This option will pass query params to the event search API

@@ -26,5 +26,10 @@
   "bugs": {
     "url": "https://github.com/chancestrickland/gatsby-source-buzzsprout/issues"
   },
-  "private": false
+  "private": false,
+  "prettier": {
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  }
 }
