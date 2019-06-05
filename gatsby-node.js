@@ -7,10 +7,10 @@ const PodcastEpisodeNode = createNodeFactory('PodcastEpisode', node => {
 
 const PLUGIN_NAME = 'gatsby-source-buzzsprout';
 
-exports.sourceNodes = async function(
+exports.sourceNodes = async (
   { actions: { createNode, setPluginStatus } },
   { query = {}, token, podcastId }
-) {
+) => {
   if (process.env.NODE_ENV !== 'production') {
     const errorAboutGatsbyPlugins =
       'To read more about configuring Gatsby plugins, read more at https://www.gatsbyjs.org/docs/using-a-plugin-in-your-site/.';
@@ -26,15 +26,15 @@ exports.sourceNodes = async function(
         `It looks like you forgot your Buzzsprout Podcast ID! Make sure to pass the ID into '${PLUGIN_NAME}' options in 'gatsby-config.js'. \n${errorAboutPodcastId} \n${errorAboutGatsbyPlugins}`
       );
   }
-  const buzzsprout = new Buzzsprout({ token, podcastId });
   try {
+    const buzzsprout = new Buzzsprout({ token, podcastId });
     const episodes = await buzzsprout.getEpisodes();
 
     episodes
       .map(PodcastEpisode => PodcastEpisodeNode(PodcastEpisode))
       .forEach(PodcastEpisodeNode => createNode(PodcastEpisodeNode));
 
-    setPluginStatus({ lastFetched: new Date() });
+    setPluginStatus({ lastFetched: Date.now() });
   } catch (err) {
     console.error('FAIL:', err);
   }
