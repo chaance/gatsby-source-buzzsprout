@@ -1,4 +1,16 @@
-# gatsby-source-buzzsprout
+<p align="center" style="display: flex; align-items: center; justify-content: center;">
+  <a href="https://www.gatsbyjs.org">
+    <img alt="Gatsby icon" src="https://www.gatsbyjs.org/monogram.svg" width="60" />
+  </a>
+  <span style="font-size: 3rem; display: inline-block; margin: 0 0.2em;">+</span>
+  <a href="https://www.gatsbyjs.org">
+    <img alt="Buzzsprout icon" src="https://res.cloudinary.com/chancedigital/image/upload/c_limit,h_100,w_150/v1559748379/buzzsprout-logo-icon.png" width="60" />
+  </a>
+</p>
+
+<h1 align="center">
+  gatsby-source-buzzsprout
+</h1>
 
 A Gatsby plugin to load podcast episodes from the [Buzzsprout API](https://github.com/Buzzsprout/buzzsprout-api). Basic functionality should work, but this is very much a work-in-process. Be prepared for things to break.
 
