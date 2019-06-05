@@ -1,0 +1,17 @@
+logs
+*.log
+pids
+*.pid
+*.seed
+lib-cov
+coverage
+.lock-wscript
+build/Release
+node_modules
+*.un~
+yarn.lock
+src
+decls
+examples
+.vscode
+.editorconfig

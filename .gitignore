@@ -12,3 +12,4 @@ jspm_packages
 .vscode
 .DS_Store
 .yarn-integrity
+yarn.lock
