@@ -46,7 +46,7 @@ module.exports = {
         // https://github.com/Buzzsprout/buzzsprout-api#authentication
         token: '1234567890',
         podcastId: '123456',
-        // This option will pass query params to the event search API
+        // This option will pass query params to the API
         // TODO: This is not supported yet!
         query: {},
       },
