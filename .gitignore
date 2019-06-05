@@ -13,3 +13,5 @@ jspm_packages
 .DS_Store
 .yarn-integrity
 yarn.lock
+/*.js
+!index.js
