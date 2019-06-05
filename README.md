@@ -1,10 +1,10 @@
-<p align="center" style="display: flex; align-items: center; justify-content: center;">
+<p align="center">
   <a href="https://www.gatsbyjs.org">
-    <img alt="Gatsby icon" src="https://www.gatsbyjs.org/monogram.svg" width="60" />
+    <img alt="Gatsby icon" src="https://www.gatsbyjs.org/monogram.svg" height="60" />
   </a>
-  <span style="font-size: 3rem; display: inline-block; margin: 0 0.2em;">+</span>
+  <img aria-hidden="true" src="https://res.cloudinary.com/chancedigital/image/upload/c_scale,h_150/v1559751463/hrt.png" alt="heart icon" height="60">
   <a href="https://www.gatsbyjs.org">
-    <img alt="Buzzsprout icon" src="https://res.cloudinary.com/chancedigital/image/upload/c_limit,h_100,w_150/v1559748379/buzzsprout-logo-icon.png" width="60" />
+    <img alt="Buzzsprout icon" src="https://res.cloudinary.com/chancedigital/image/upload/c_limit,h_100,w_150/v1559748379/buzzsprout-logo-icon.png" height="60" />
   </a>
 </p>
 
