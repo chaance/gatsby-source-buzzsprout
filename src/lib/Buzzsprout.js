@@ -20,7 +20,7 @@ class Buzzsprout {
   setHeaders = (headers = {}) => {
     // extract auth values to avoid potential bugs
     const { Authorization, authorization, ...newHeaders } = headers;
-    const { currentHeaders } = this;
+    const { headers: currentHeaders } = this;
     this.headers = {
       ...currentHeaders,
       ...newHeaders,
