@@ -19,7 +19,7 @@ class Buzzsprout {
 
   setHeaders = (headers = {}) => {
     // extract auth values to avoid potential bugs
-    const { Authorization, authorization = null, ...newHeaders } = headers;
+    const { Authorization, authorization, ...newHeaders } = headers;
     const { currentHeaders } = this;
     this.headers = {
       ...currentHeaders,
@@ -28,7 +28,7 @@ class Buzzsprout {
   };
 
   request = (path = '', params = {}, method = 'GET') => {
-    // let query = qs.stringify(params) || '';
+    // TODO: let query = qs.stringify(params) || '';
     const url = this.baseUrl + path;
     return fetch(url, {
       method,

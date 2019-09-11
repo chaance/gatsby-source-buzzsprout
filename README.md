@@ -28,10 +28,6 @@ OR
 $ yarn add gatsby-source-buzzsprout
 ```
 
-### Webhooks
-
-TODO
-
 ## Usage
 
 In your `gatsby-config.js` file, load in the plugin along with the parameters of which podcast episodes to load:
@@ -46,9 +42,6 @@ module.exports = {
         // https://github.com/Buzzsprout/buzzsprout-api#authentication
         token: '1234567890',
         podcastId: '123456',
-        // This option will pass query params to the API
-        // TODO: This is not supported yet!
-        query: {},
       },
     },
   ],
@@ -61,7 +54,6 @@ In your page, construct a query to get the data you need from the API.
 import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from 'components/Layout';
-import Episode from 'components/Episode';
 
 const PodcastPage = ({
   data: {
@@ -73,12 +65,15 @@ const PodcastPage = ({
       <h1>My Podcast Episodes</h1>
       <ul>
         {episodes.map(({ node }) => (
-          <Episode
-            key={node.id}
-            episode={node.episode_number}
-            title={node.title}
-            url={node.audio_url}
-          />
+          <li key={node.id}>
+            <article>
+              <h2>
+                Episode {node.episode_number}: {node.title}
+              </h2>
+              <hr />
+              <a href={node.audio_url}>Download</a>
+            </article>
+          </li>
         ))}
       </ul>
     </Layout>
@@ -86,7 +81,7 @@ const PodcastPage = ({
 };
 
 export const query = graphql`
-  query HomePageQuery {
+  query PodcastPageQuery {
     allBuzzsproutPodcastEpisode {
       edges {
         node {
@@ -100,5 +95,5 @@ export const query = graphql`
   }
 `;
 
-export default IndexPage;
+export default PodcastPage;
 ```
