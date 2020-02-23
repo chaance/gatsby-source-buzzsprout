@@ -4,11 +4,11 @@
   "description": "Gatsby plugin to load podcast episodes from Buzzsprout.",
   "main": "index.js",
   "scripts": {
-    "build": "babel src --out-dir . --ignore **/__tests__",
-    "watch": "babel -w src --out-dir . --ignore **/__tests__",
+    "build": "babel src --out-dir . --ignore '**/__tests__','**/__mocks__','**/mock-data.js'",
+    "watch": "babel -w src --out-dir . --ignore '**/__tests__','**/__mocks__','**/mock-data.js'",
     "dev": "cross-env NODE_ENV=development npm run watch",
     "prepare": "cross-env NODE_ENV=production npm run build",
-    "test": "echo \"Error: no test specified\""
+    "test": "jest test"
   },
   "keywords": [
     "gatsby",
@@ -28,23 +28,27 @@
   },
   "private": false,
   "dependencies": {
-    "@babel/runtime": "^7.6.0",
+    "@babel/runtime": "^7.8.4",
     "gatsby-node-helpers": "^0.3.0",
     "node-fetch": "^2.6.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.6.0",
-    "@babel/core": "^7.6.0",
-    "@babel/plugin-proposal-class-properties": "^7.5.5",
-    "@babel/plugin-proposal-object-rest-spread": "^7.5.5",
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.4",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.8.3",
+    "@babel/plugin-proposal-object-rest-spread": "^7.8.3",
+    "@babel/plugin-proposal-optional-chaining": "^7.8.3",
+    "@chancedigital/eslint-config": "^5.0.1",
     "babel-eslint": "^10.0.3",
-    "babel-preset-gatsby-package": "^0.2.4",
-    "cross-env": "^5.2.1",
-    "eslint": "^6.3.0",
-    "eslint-config-prettier": "^6.3.0",
-    "eslint-plugin-node": "^10.0.0",
-    "eslint-plugin-prettier": "^3.1.0",
-    "prettier": "^1.18.2"
+    "babel-preset-gatsby-package": "^0.2.16",
+    "cross-env": "^7.0.0",
+    "eslint": "^6.8.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-jest": "^23.8.0",
+    "eslint-plugin-node": "^11.0.0",
+    "jest": "^25.1.0",
+    "prettier": "^1.19.1"
   },
   "peerDependencies": {
     "gatsby": "^2.0.0"
@@ -53,5 +57,14 @@
     "semi": true,
     "singleQuote": true,
     "trailingComma": "es5"
+  },
+  "eslintConfig": {
+    "extends": [
+      "@chancedigital/eslint-config/node",
+      "@chancedigital/eslint-config/jest"
+    ],
+    "rules": {
+      "node/no-unpublished-require": 0
+    }
   }
 }
