@@ -1,7 +1,16 @@
+const path = require('path');
 const createNodeHelpers = require('gatsby-node-helpers').default;
 const Buzzsprout = require('./lib/Buzzsprout');
+
 const { createNodeFactory } = createNodeHelpers({ typePrefix: `Buzzsprout` });
 const PodcastEpisodeNode = createNodeFactory('PodcastEpisode', node => {
+  if (!node.slug && node.audio_url) {
+    node.slug = path
+      .basename(node.audio_url)
+      .split('.')
+      .slice(0, -1)
+      .join('.');
+  }
   return node;
 });
 
@@ -31,8 +40,8 @@ exports.sourceNodes = async (
     const episodes = await buzzsprout.getEpisodes();
 
     episodes
-      .map(PodcastEpisode => PodcastEpisodeNode(PodcastEpisode))
-      .forEach(PodcastEpisodeNode => createNode(PodcastEpisodeNode));
+      .map(episode => PodcastEpisodeNode(episode))
+      .forEach(node => createNode(node));
 
     setPluginStatus({ lastFetched: Date.now() });
   } catch (err) {
