@@ -9,7 +9,9 @@ const PodcastEpisodeNode = createNodeFactory('PodcastEpisode', node => {
       .basename(node.audio_url)
       .split('.')
       .slice(0, -1)
-      .join('.');
+      .join('.')
+      // buzzsprout prepends an episode ID to the beginning of its slugs
+      .replace(/^\d+-/g, '')
   }
   return node;
 });
