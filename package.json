@@ -1,6 +1,6 @@
 {
   "name": "gatsby-source-buzzsprout",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Gatsby plugin to load podcast episodes from Buzzsprout.",
   "main": "index.js",
   "scripts": {
